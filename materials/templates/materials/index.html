@@ -1,29 +1,37 @@
 {% extends 'materials/base.html' %}
 
+{% block search %}
+    	    <form class="navbar-form navbar-left form-inline" role="search" action="" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="q" value="">&nbsp;
+                </div>
+                <button class="btn btn-default" type="submit">Search</button>&nbsp;
+            </form>
+{% endblock %}
+
 {% block body %}
      <div class="col-lg-12">
-          <br>
+          <br><br>
           <div class="container-fluid" style="margin:0.66%">
               {% for category in all_categories %}
                   <h3>{{ category.category_name }}</h3>
                    <div class="row">
                      {% for resource in category.resource_set.all %}
                          <div class="col-lg-3 col-sm-6">
-                             <div class="card">
+                             <div class="card container">
                                 <div class="view overlay hm-white-slight">
                                  <img src="{{ category.category_pic }}" class="img-fluid" alt="">
                                  <a href="#">
                                     <div class="mask"></div>
                                  </a>
-                              </div>
-                              <div class="card-body">
-                                <h4 class="card-title">{{ resource.material_name }}</h4>
-                                <p class="card-text">{{ resource.material_description }}</p>
-                                <a href="{% url 'materials:detail' resource.material_name %}" class="black-text d-flex flex-row-reverse align-right">
-                                     <h5 class="waves-effect p-2">Read more <i class="fa fa-chevron-right"></i></h5>
-                                </a>
-                              </div>
-
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ resource.material_name }}</h4>
+                                    <p class="card-text">{{ resource.material_description }}</p>
+                                    <a href="/materials/{{ resource.material_name }}/" class="black-text d-flex flex-row-reverse align-right">
+                                         <h5 class="waves-effect p-2">Read more <i class="fa fa-chevron-right"></i></h5>
+                                    </a>
+                                </div>
                              </div>
                          </div>
                       {% endfor %}

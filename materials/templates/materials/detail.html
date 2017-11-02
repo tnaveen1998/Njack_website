@@ -1,5 +1,20 @@
 {% extends 'materials/base.html' %}
 
 {% block body %}
+     <div class = "container-fluid" style="margin:0">
+     <div class="row">
+        <div class="container-fluid" style="text-align:center;background-color: darkturquoise;margin:0">
+            <h3 style="text-transform: capitalize">{{ resource.material_name }}</h3>
+            <p >{{ resource.material_description }}</p>
+        </div>
+      </div>
+     <div class="row">
+         <div class="container-fluid">
+             <h3>Content</h3>
+             <p>{{ resource.content }}</p><hr>
+             <p class="text-muted">Posted by {{ resource.author }} on {{ resource.post_date }}</p>
+         </div>
+     </div>
 
+  </div>
 {% endblock %}

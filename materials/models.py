@@ -13,6 +13,7 @@ class Resource(models.Model):
     material_description = models.CharField(max_length=5000)
     author = models.CharField(max_length=100)
     post_date = models.CharField(max_length=20)
+    content = models.CharField(max_length=10000000)
 
     def __str__(self):
         return (self.material_name + ' - ' + self.category.category_name)
